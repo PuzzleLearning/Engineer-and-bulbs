@@ -1,21 +1,24 @@
 import sys
+import six
 
-def write_value( value ): 
-    sys.stdout.write( str(value) ) 
+
+def write_value(value):
+    sys.stdout.write(str(value))
+
 
 bulbs = dict()
-for __x in range(1, 1000):
-    bulbs[__x] = False
+for x in range(1, 1000):
+    bulbs[x] = False
 
 for i in range(1, 1000):
     for b in bulbs:
         if b % i == 0:
-            print 'found i= ' + str(i) + ' divides the ' + str(b)
-            print 'changing light'
+            six.print_('found i= {} divides the {}'.format(str(i), str(b)))
+            six.print_('changing light')
             bulbs[b] = not bulbs[b]
 
-print '{'
-for i in range (1, 1000):
+write_value('{')
+for i in range(1, 1000):
     if bulbs[i] is True:
         write_value(str(i) + ',')
-print '}'
+six.print_('}')

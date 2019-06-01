@@ -20,7 +20,7 @@ bulbs, which numbers are even and divisible by `3`, are turned on. Rest of the l
 
 Find which bulbs are switched on at the end of experiment.
 
-## Solution in-machina
+## Computational solution
 
 ```
 python bulbs_game.py

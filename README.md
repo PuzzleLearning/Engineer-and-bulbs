@@ -25,7 +25,19 @@ Find which bulbs are switched on at the end of experiment.
 
 ## Requirements
 
-Python 3.10 or newer. No third-party packages, no build step, nothing to install.
+**Python 3.10 or newer** — tested up to 3.13, and nothing here is expected to
+break on later versions. No third-party packages, no build step, nothing to
+install.
+
+Older interpreters are not supported. On Python 3.9 and below the script fails
+at import with a `TypeError`, because it writes optional parameters as
+`list[str] | None` — the `X | Y` union syntax
+([PEP 604](https://peps.python.org/pep-0604/)) only became valid at runtime in
+3.10. Python 2 is long gone from this repo; the original version supported it
+via `six`.
+
+Check what you have with `python --version`, and mind that on many systems
+`python` and `python3` point at different interpreters.
 
 ## Computational solution
 

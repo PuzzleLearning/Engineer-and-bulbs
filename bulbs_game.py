@@ -21,15 +21,8 @@ Usage
 Requires Python 3.10 or newer. It has no third-party dependencies.
 """
 
-import sys
-
-if sys.version_info < (3, 10):  # pragma: no cover - guard for old interpreters
-    sys.exit(
-        f"bulbs_game.py requires Python 3.10 or newer, "
-        f"but is running on {sys.version.split()[0]}."
-    )
-
 import argparse
+import sys
 
 #: How many bulbs the original puzzle statement talks about.
 DEFAULT_BULB_COUNT = 1000

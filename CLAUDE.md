@@ -15,7 +15,7 @@ python bulbs_game.py            # default 1000 bulbs
 python bulbs_game.py -n 100 -v  # smaller board, trace every flip
 ```
 
-Python 3.10+, no third-party dependencies. The system `python3` on this machine is 3.9, which the script rejects with a friendly message from its version guard; use `~/miniconda3/envs/py_313/bin/python` (or `py_310`) to actually run it.
+Python 3.10+, no third-party dependencies. The system `python3` on this machine is 3.9 and fails at import with a `TypeError` on the `list[str] | None` annotation; use `~/miniconda3/envs/py_313/bin/python` (or `py_310`) to actually run it.
 
 ## Conventions worth preserving
 

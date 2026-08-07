@@ -1,13 +1,13 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
-  <img alt="Engineer &amp; Bulbs — 1000 bulbs, 1000 presses of the switch, 31 left burning" src="docs/banner-light.svg" width="100%">
-</picture>
-
 Engineer-and-bulbs
 ==================
 
 A small puzzle, solved by simulation — and an excuse to look at the same
 question from four different angles, from brute force down to a one-liner.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
+  <img alt="Engineer &amp; Bulbs — 1000 bulbs, 1000 presses of the switch, 31 left burning" src="docs/banner-light.svg" width="100%">
+</picture>
 
 *(The banner is not decoration: which bulbs glow in it was decided by running
 the solver in this repository, so the picture is the answer.)*

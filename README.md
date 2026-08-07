@@ -4,6 +4,19 @@ Engineer-and-bulbs
 A small puzzle, solved by simulation — and an excuse to look at the same
 question from four different angles, from brute force down to a one-liner.
 
+The setup is deliberately tedious: a thousand bulbs, a thousand presses of a
+switch, and a rule plain enough to carry out with a pencil if you had a free
+afternoon and no better ideas. What makes it worth keeping around is the
+distance between how the question is posed and how it is answered — it reads
+like bookkeeping, and it turns out to be a fact about divisors. Run the program
+and it does the bookkeeping honestly, some seven and a half thousand flips of
+it, then prints the thirty-one bulbs still burning. Read a little further and
+you discover you never needed to run anything at all: the survivors are the
+perfect squares, and counting them takes a single square root. This repository
+keeps both methods on purpose, because the slow one is what convinces you the
+fast one is right. It also traces where the puzzle came from, which is a good
+deal further back than this code.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
   <img alt="Engineer &amp; Bulbs — 1000 bulbs, 1000 presses of the switch, 31 left burning" src="docs/banner-light.svg" width="100%">

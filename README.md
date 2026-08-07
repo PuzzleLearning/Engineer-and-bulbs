@@ -1,8 +1,16 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
+  <img alt="Engineer &amp; Bulbs — 1000 bulbs, 1000 presses of the switch, 31 left burning" src="docs/banner-light.svg" width="100%">
+</picture>
+
 Engineer-and-bulbs
 ==================
 
 A small puzzle, solved by simulation — and an excuse to look at the same
 question from four different angles, from brute force down to a one-liner.
+
+*(The banner is not decoration: which bulbs glow in it was decided by running
+the solver in this repository, so the picture is the answer.)*
 
 ## Problem definition
 
@@ -174,6 +182,73 @@ printed two lines of trace per flip). The 2026 refresh dropped the dependency,
 switched to the multiples-only sieve, added type hints, docstrings and a small
 CLI, fixed an off-by-one that quietly left bulb `1000` out of the experiment,
 and wrote down the mathematics above.
+
+## Literature
+
+This puzzle is not original to this repository — it is a well-travelled classic
+that most sources call **the locker problem**. The usual framing swaps bulbs for
+a school corridor: `n` lockers, all closed, and `n` students, where student `k`
+toggles every `k`-th locker. Same rule, same answer, and the count of survivors
+is `floor(sqrt(n))` either way. It also circulates as **"100 doors"** and, in
+the exact wording used here, as the **bulb switcher**.
+
+**In mathematics education.** The problem is a staple for introducing factors,
+multiples and divisor counting, and it has been written up repeatedly as a
+classroom activity — Kimani, Olanoff and Masingila's
+["The Locker Problem: An Open and Shut Case"](https://pubs.nctm.org/view/journals/mtms/22/3/article-p144.pdf)
+in NCTM's *Mathematics Teaching in the Middle School* 22(3) (2016), and
+Seshaiyer, Suh and Freeman's
+["Unlocking the Locker Problem"](https://math.gmu.edu/~pseshaiy/publications/nctm_locker_2011.pdf)
+in *Teaching Children Mathematics*, are two representative treatments. The
+appeal for teaching is that the brute-force answer is reachable by any student
+with squared paper, while the *reason* for it is a genuine piece of number
+theory.
+
+**In the research literature.** The base case is folklore, but its
+generalizations are not:
+
+- B. Torrence and S. Wagon, *The Locker Problem*, **Crux Mathematicorum** 33(4)
+  (May 2007), 232–236 — the standard mathematical write-up, listed among
+  [Wagon's papers](https://stanleywagon.com/books-papers/). Torrence also has
+  *Extending the Locker Problem* in *Mathematica in Education and Research*
+  11(1) (2006).
+- R. L. Jayne and R. T. Koether,
+  [*Iterating the Locker Problem*](https://www.tandfonline.com/doi/abs/10.1080/0025570X.2020.1736887),
+  **Mathematics Magazine** 93(3) (2020), 213–224 — replaces the two-state door
+  with `q` states for prime `q`, so a locker cycles `0, 1, …, q-1` instead of
+  merely flipping. The two-state puzzle here is the case `q = 2`.
+- K. A. P. Dagal, [*The Generalized Locker Problem*](https://arxiv.org/abs/1307.6455),
+  arXiv:1307.6455 (2013) — lets the number of students differ from the number of
+  lockers and lets arbitrary subsets of students participate, then shows those
+  subsets form an abelian group isomorphic to the power set under symmetric
+  difference, with a bijection onto the reachable locker states.
+
+**In programming culture.** The puzzle is a fixture of language comparisons and
+interview prep. [Rosetta Code's *100 doors*](https://rosettacode.org/wiki/100_doors)
+carries implementations in hundreds of languages, and explicitly asks for the
+honest simulation rather than the perfect-squares shortcut, since the point
+there is to compare language syntax rather than cleverness. As
+[LeetCode 319, *Bulb Switcher*](https://leetcode.com/problems/bulb-switcher/),
+it is graded on the opposite instinct: the accepted answer is
+`return isqrt(n)`, and simulating is how you time out. This repository happily
+does the disallowed thing in both directions — it simulates, and it tells you
+the shortcut.
+
+**The underlying fact.** That a number has an odd divisor count exactly when it
+is a perfect square is a standard result about the divisor function `d(n)` (also
+written `τ(n)`), found in any introductory number theory text. The two relevant
+sequences are [OEIS A000005](https://oeis.org/A000005) (number of divisors of
+`n`) and [OEIS A000290](https://oeis.org/A000290) (the squares themselves — the
+bulbs left burning).
+
+**A word of warning on the name.** Searching for "the locker puzzle" will mostly
+return a *different* problem: the one where 100 prisoners each open 50 of 100
+drawers hunting for their own number, and a cycle-following strategy beats the
+naive `2^-100` odds up to about 31%. That is the subject of Curtin and
+Warshauer's *The Locker Puzzle* (*The Mathematical Intelligencer* 28, 2006,
+28–31) and of the [100 prisoners problem](https://en.wikipedia.org/wiki/100_prisoners_problem).
+Despite the near-identical name, it has nothing to do with toggling, divisors,
+or this repository.
 
 ## License
 
